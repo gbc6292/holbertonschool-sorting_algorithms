@@ -11,12 +11,14 @@ void bubble_sort(int *array, size_t size)
 {
 	size_t x, size_dup = size;
 	int tmp;
+	bool swp;
 
 	if (array == NULL || size < 2)
 		return;
 
-	while (size_dup > 0)
+	while (swp == false)
 	{
+		swp = true;
 		for (x = 0; x < (size_dup - 1); x++)
 		{
 			if (array[x] > array[x + 1])
@@ -26,8 +28,9 @@ void bubble_sort(int *array, size_t size)
 				array[x + 1] = tmp;
 
 				print_array(array,size);
+				swp = false;
 			}
 		}
-		size_dup = 0;
+		size_dup--;
 	}
 }
